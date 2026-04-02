@@ -1,4 +1,19 @@
-# AGENTS.md
+# 3D Resume Website
+
+## Commands
+- `bun dev` — start dev server
+- `bun run build` — production build
+- `bun run preview` — preview production build
+- `bun run test` — run vitest (19 tests)
+- `bun run test:watch` — vitest watch mode
+
+## Stack
+- Vite + React 19 + TypeScript
+- React Three Fiber + drei + postprocessing
+- maath/easing for animations (damping, not tweening)
+- Zustand for state (getState() in useFrame, no React subscriptions in render loop)
+- Framer Motion for DOM overlay animations
+- Tailwind CSS v4
 
 ## Critical Rules
 
@@ -6,6 +21,15 @@
 - **Never use React subscriptions inside useFrame.** Read Zustand with `useAppStore.getState()` in animation loops. React subscriptions cause re-renders that kill frame rate.
 - **All emissive materials must set `toneMapped={false}`.** Without this, bloom post-processing can't pick up the glow.
 - **Scene-config is the single source of truth for object positions.** Object components must not hardcode their own position — it comes from `InteractiveObject` via `scene-config.ts`.
+
+## Conventions
+- Path alias: `@/` maps to `src/`
+- 3D components in `src/components/canvas/`
+- DOM overlays in `src/components/overlay/`
+- Object components in `src/components/canvas/objects/`
+- Scene config and resume data in `src/data/`
+- Zustand store in `src/store/`
+- Models in `public/models/` (GLB format)
 
 ## Architecture
 
@@ -34,11 +58,3 @@ When adding a new interactive object, 5 files must stay in sync:
 5. `ContentPanel.tsx` — register in `panelMap`
 
 Tests in `scene-config.test.ts` validate that all keys in `sceneObjects` have matching data.
-
-## Testing
-```bash
-bun run test          # vitest run (19 tests)
-bun run test:watch    # vitest watch mode
-```
-
-Tests cover store state transitions, resume data completeness, and scene-config/panel key consistency. No Three.js mocking needed — tests target data layer and store only.
