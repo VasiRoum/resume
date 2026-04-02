@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { education, languages } from "@/data/resume";
 
-export default function EducationPanel() {
+export default memo(function EducationPanel() {
   return (
     <div className="space-y-6">
       <div>
@@ -38,4 +39,4 @@ export default function EducationPanel() {
       </div>
     </div>
   );
-}
+});

@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { summary, contact, techSkills } from "@/data/resume";
 
-export default function SummaryPanel() {
+export default memo(function SummaryPanel() {
   return (
     <div className="space-y-6">
       <div>
@@ -63,4 +64,4 @@ export default function SummaryPanel() {
       </div>
     </div>
   );
-}
+});

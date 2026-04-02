@@ -1,9 +1,8 @@
+import { useEffect } from "react";
 import { CameraControls, PerformanceMonitor } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { useEffect } from "react";
 import Lighting from "./Lighting";
 import Atmosphere from "./Atmosphere";
-import PostProcessing from "./PostProcessing";
 import DeskScene from "./DeskScene";
 import { useCameraTransition } from "@/hooks/useCameraTransition";
 import { useResponsive } from "@/hooks/useResponsive";
@@ -45,7 +44,6 @@ export default function Scene() {
       <group scale={sceneScale}>
         <DeskScene />
       </group>
-      <PostProcessing />
     </>
   );
 }

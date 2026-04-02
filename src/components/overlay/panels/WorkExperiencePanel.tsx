@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { workExperience } from "@/data/resume";
 
 interface Props {
@@ -5,7 +6,7 @@ interface Props {
   accentColor: string;
 }
 
-export default function WorkExperiencePanel({ section, accentColor }: Props) {
+export default memo(function WorkExperiencePanel({ section, accentColor }: Props) {
   const entries = workExperience[section];
   return (
     <div className="space-y-6">
@@ -30,4 +31,4 @@ export default function WorkExperiencePanel({ section, accentColor }: Props) {
       ))}
     </div>
   );
-}
+});

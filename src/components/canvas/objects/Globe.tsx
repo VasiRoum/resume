@@ -11,15 +11,15 @@ export default function Globe() {
   const [showSparkles, setShowSparkles] = useState(false);
 
   useFrame((_state, delta) => {
-    const active = useAppStore.getState().activeObject === "globe";
-    const targetSpeed = active ? 2 : 0.2;
+    const isActive = useAppStore.getState().activeObject === "globe";
+    setShowSparkles(isActive);
+
+    const targetSpeed = isActive ? 2 : 0.2;
     easing.damp(rotSpeed, "current", targetSpeed, 0.5, delta);
 
     if (globe.current) {
       globe.current.rotation.y += delta * rotSpeed.current;
     }
-
-    if (active !== showSparkles) setShowSparkles(active);
   });
 
   return (

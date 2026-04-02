@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { sideProjects } from "@/data/resume";
 
-export default function SideProjectsPanel() {
+export default memo(function SideProjectsPanel() {
   return (
     <div className="space-y-6">
       {sideProjects.map((project) => (
@@ -19,4 +20,4 @@ export default function SideProjectsPanel() {
       ))}
     </div>
   );
-}
+});

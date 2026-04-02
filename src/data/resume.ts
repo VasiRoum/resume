@@ -1,5 +1,6 @@
 export interface ContactInfo {
   email: string;
+  phone: string;
   linkedin: string;
   github: string;
   location: string;
@@ -26,111 +27,139 @@ export interface EducationEntry {
 }
 
 export const contact: ContactInfo = {
-  email: "vasilis.roumeliotis@example.com",
+  email: "vasiroum@gmail.com",
+  phone: "+30 694-762-7878",
   linkedin: "linkedin.com/in/vasilis-roumeliotis",
-  github: "github.com/vasilis-roumeliotis",
-  location: "Germany",
+  github: "github.com/vasiroum",
+  location: "Athens, Greece",
 };
 
 export const summary =
-  "AI Software Engineer with experience building multi-agent systems, enterprise applications, and developer tools. Passionate about turning complex problems into elegant, production-ready solutions.";
+  "Results-driven AI Software Engineer with 4+ years architecting and shipping AI-powered products, multi-agent systems, and full-stack applications. Pioneered compound engineering workflows with 15+ specialized AI agents. Ships production systems across web (Next.js/React/Supabase), mobile (SwiftUI), and enterprise (OutSystems/Workato). Proven track record delivering for Fortune 500 pharmaceutical, major European logistics, and industrial HVAC enterprises.";
 
 export const techSkills = {
-  languages: ["Python", "TypeScript", "Ruby", "Go", "SQL"],
-  ai: ["LangChain", "LangGraph", "Claude API", "OpenAI API", "MCP", "RAG", "Fine-tuning"],
-  frontend: ["React", "Next.js", "Three.js", "Tailwind CSS"],
-  backend: ["Rails", "FastAPI", "Node.js", "PostgreSQL", "Redis"],
-  devops: ["Docker", "AWS", "Vercel", "CI/CD", "GitHub Actions"],
-  tools: ["Git", "Cursor", "Claude Code", "Figma"],
+  "AI & Agent Systems": [
+    "Claude Agent SDK",
+    "MCP Servers",
+    "Multi-Agent Orchestration",
+    "Prompt Engineering",
+    "SSE Streaming",
+  ],
+  "Web Development": [
+    "Next.js 16 (App Router)",
+    "React 19",
+    "TypeScript",
+    "Tailwind CSS v4",
+    "shadcn/ui",
+    "Bun",
+  ],
+  "Cloud & DevOps": [
+    "AWS (ECS/Fargate, RDS, ECR, CloudWatch, IAM)",
+    "Docker",
+    "Vercel",
+    "CI/CD",
+  ],
+  "Backend & Databases": [
+    "FastAPI",
+    "Supabase (Postgres, Auth, RLS, Edge Functions)",
+    "PostgreSQL",
+  ],
+  Mobile: [
+    "SwiftUI",
+    "SwiftData",
+    "WatchConnectivity",
+    "AVAudioSession",
+    "SFSpeechRecognizer",
+  ],
+  "SDK & Smart Contracts": ["Ruby (SDK Development)", "Solidity", "Python", "Brownie"],
+  "Low-Code Platforms": ["OutSystems 11 & ODC", "Workato", "Oracle Apex"],
 };
 
 export const workExperience: Record<string, WorkEntry[]> = {
-  logistics: [
-    {
-      company: "Rail Logistics Company",
-      role: "Software Engineer",
-      period: "2023 – 2024",
-      bullets: [
-        "Optimized shipment processing pipeline from 30-60 seconds to sub-second response times",
-        "Built real-time tracking dashboard serving 500+ daily active users",
-        "Designed event-driven architecture handling 10K+ shipment events per day",
-        "Implemented automated testing suite with 95% code coverage",
-      ],
-    },
-  ],
-  pharma: [
-    {
-      company: "Pharmaceutical Company",
-      role: "Full-Stack Developer",
-      period: "2022 – 2023",
-      bullets: [
-        "Built tariff calculation system handling 13 pay grades and complex union rules",
-        "Developed comprehensive test suite with 416+ automated tests",
-        "Created admin dashboard for HR managers to configure compensation rules",
-        "Reduced payroll processing errors by 87% through automated validation",
-      ],
-    },
-  ],
   ai: [
     {
-      company: "AI Startup",
+      company: "Business Automatica GmbH",
       role: "AI Software Engineer",
-      period: "2024 – Present",
+      period: "01/2022 – Present",
       bullets: [
-        "Architected 9-agent multi-agent platform for automated business workflows",
-        "Built intelligent pricing engine using LLM-powered market analysis",
-        "Developed MCP servers for tool integration across agent systems",
-        "Implemented RAG pipelines for domain-specific knowledge retrieval",
-        "Created evaluation framework for measuring agent performance and reliability",
+        "Architected a 9-agent business validation platform using Claude Agent SDK + FastAPI, orchestrating parallel research across market, competitor, financial, and risk domains",
+        "Built an adaptive pricing/rules engine with 734+ automated tests and prompt caching achieving 90% cost reduction",
+        "Developed an autonomous idea-to-production pipeline from concept through validation, specification, and build with minimal human intervention",
+        "Built MCP servers in TypeScript, Python, and Bash for AI tool integration and legacy system migration",
       ],
     },
   ],
   enterprise: [
     {
-      company: "Enterprise Solutions",
-      role: "Full-Stack Developer",
-      period: "2021 – 2022",
+      company: "Business Automatica GmbH",
+      role: "AI Software Engineer",
+      period: "01/2022 – Present",
       bullets: [
-        "Built offline-capable HVAC management PWA used by 200+ field technicians",
-        "Developed pdf2zugferd — automated e-invoice conversion tool",
-        "Created AI-powered CRM system with intelligent lead scoring",
-        "Implemented real-time sync engine for offline-first mobile applications",
+        "Built an offline-first PWA maintenance report system for an industrial HVAC company — 5 document types, tablet-first, IndexedDB sync",
+        "Built pdf2zugferd, an e-invoicing platform converting PDFs to ZUGFeRD/XRechnung v3 compliant electronic invoices — PDF/A-3 embedding, bilingual DE/EN, Zod validation",
+        "Architected, developed and deployed a production-grade AI-powered CRM",
+      ],
+    },
+  ],
+  logistics: [
+    {
+      company: "Business Automatica GmbH",
+      role: "AI Software Engineer",
+      period: "01/2022 – Present",
+      bullets: [
+        "Optimized a major European rail logistics company's track & trace system, reducing page load from 30-60s to sub-second via SQL query optimization",
+      ],
+    },
+  ],
+  pharma: [
+    {
+      company: "Business Automatica GmbH",
+      role: "AI Software Engineer",
+      period: "01/2022 – Present",
+      bullets: [
+        "Designed and shipped a tariff career progression system for a Fortune 500 pharmaceutical company — 13 pay grades, 4 regions, 21-state workflow, 416+ automated tests",
       ],
     },
   ],
 };
 
+export const devTooling = [
+  "Created 15+ AI development skills, hooks, and agents establishing a compound engineering workflow (plan/work/review/compound) used across all company projects",
+  "Built a Slack-Claude bridge for bidirectional team AI interaction via Socket Mode with session discovery and management",
+  "Deployed production systems on AWS ECS/Fargate, Vercel, and Supabase with Docker containerization and CI/CD pipelines",
+];
+
 export const sideProjects: ProjectEntry[] = [
   {
     name: "ParkSpot",
-    description: "Smart parking finder app",
+    description: "Peer-to-Peer Parking Marketplace",
     bullets: [
-      "Real-time parking availability using computer vision",
-      "Mobile-first PWA with offline support",
+      "Full-stack marketplace with Next.js web app + SwiftUI iOS app",
+      "Stripe payments, Leaflet maps, and Supabase Auth with RLS",
     ],
   },
   {
     name: "Arc",
-    description: "AI-powered code review tool",
+    description: "iOS/watchOS Workout Timer",
     bullets: [
-      "Automated code review with contextual suggestions",
-      "GitHub integration with PR commenting",
+      "Offline-first timer with voice commands (SFSpeechRecognizer)",
+      "Background audio, WatchConnectivity sync, and crash recovery",
     ],
   },
   {
-    name: "ABC",
-    description: "Automated business compliance checker",
+    name: "Athens Boxing Club",
+    description: "Marketing Site",
     bullets: [
-      "Document analysis pipeline for regulatory compliance",
-      "Multi-jurisdiction rule engine",
+      "Next.js 16 site with programmatic SEO (12 playbook types)",
+      "Bilingual EN/EL, Supabase backend",
     ],
   },
   {
-    name: "Deep Research Agent",
-    description: "Autonomous research assistant",
+    name: "Deep Research Platform",
+    description: "AI Research Assistant",
     bullets: [
-      "Multi-step research with source verification",
-      "Structured output with citations",
+      "Recursive SERP analysis with Firecrawl, SSE streaming",
+      "Session management and multi-mode business analysis",
     ],
   },
 ];
@@ -138,18 +167,18 @@ export const sideProjects: ProjectEntry[] = [
 export const education: EducationEntry[] = [
   {
     institution: "Democritus University of Thrace",
-    degree: "Bachelor of Science in Computer Science",
-    period: "2017 – 2021",
+    degree: "Electrical & Computer Engineering",
+    period: "09/2012 – 10/2021",
     details: [
-      "Thesis: Jupiter — Distributed computing framework for scientific workloads",
-      "Focus: Algorithms, Distributed Systems, Machine Learning",
+      "Thesis: Charged Particles' Motion Simulation in Jupiter's Magnetosphere using MPI (10/10)",
+      "Fortran95, Python, Linux, MPI+OpenMP, HDF5",
     ],
   },
 ];
 
 export const languages = [
   { language: "Greek", level: "Native" },
-  { language: "English", level: "Fluent (C2)" },
-  { language: "German", level: "Professional (B2)" },
-  { language: "French", level: "Basic (A2)" },
+  { language: "English", level: "C2 — Full Professional" },
+  { language: "German", level: "B2 — Working Proficiency" },
+  { language: "French", level: "A1 — Elementary" },
 ];

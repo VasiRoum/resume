@@ -10,9 +10,12 @@ export default function Train() {
   useFrame((_state, delta) => {
     if (!trainBody.current) return;
     const active = useAppStore.getState().activeObject === "train";
+
     if (active) {
+      // Direct oscillation — no damping on a moving target
       trainBody.current.position.x = Math.sin(Date.now() * 0.001) * 0.3;
     } else {
+      // Damp back to rest
       easing.damp(trainBody.current.position, "x", 0, 0.3, delta);
     }
   });

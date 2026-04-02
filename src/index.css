@@ -22,3 +22,53 @@ body,
     -apple-system,
     sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-delay {
+  0%,
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  0%,
+  40% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s 0.1s ease-out both;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in-delay 0.6s 0.3s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s 0.4s ease-out both;
+}

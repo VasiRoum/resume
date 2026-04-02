@@ -4,7 +4,8 @@ import { easing } from "maath";
 import type { Group, Material } from "three";
 import { useAppStore } from "@/store/useAppStore";
 
-const isTouchDevice = typeof window !== "undefined" && "ontouchstart" in window;
+const isTouchPrimary =
+  typeof window !== "undefined" && window.matchMedia("(hover: none)").matches;
 
 export function useInteraction(objectKey: string) {
   const groupRef = useRef<Group>(null);
@@ -34,7 +35,7 @@ export function useInteraction(objectKey: string) {
     let targetScale = 1;
     if (isActive) {
       targetScale = 1;
-    } else if (hovered.current && !isTouchDevice) {
+    } else if (hovered.current && !isTouchPrimary) {
       targetScale = 1.05;
     } else if (somethingActive) {
       targetScale = 0.95;
@@ -57,15 +58,15 @@ export function useInteraction(objectKey: string) {
   });
 
   const onPointerOver = () => {
-    if (!isTouchDevice) {
+    if (!isTouchPrimary) {
       hovered.current = true;
-      document.body.style.cursor = "pointer";
+      useAppStore.getState().setHoveredObject(objectKey);
     }
   };
 
   const onPointerOut = () => {
     hovered.current = false;
-    document.body.style.cursor = "auto";
+    useAppStore.getState().setHoveredObject(null);
   };
 
   const onClick = () => {

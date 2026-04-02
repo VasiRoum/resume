@@ -34,7 +34,6 @@ export default function MacBook() {
           color="#ffffff"
           anchorX="center"
           anchorY="middle"
-          font="/fonts/inter-bold.woff"
         >
           Vasilis Roumeliotis
         </Text>
