@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasilis Roumeliotis - AI Software Engineer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Geist Mono', monospace;
+    font-size: 8pt;
+    color: #333;
+    line-height: 1.45;
+    background: #fff;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: #2d3748;
+    color: #fff;
+    padding: 20px 30px 16px;
+  }
+  .header h1 {
+    font-size: 21pt;
+    font-weight: 700;
+    margin-bottom: 1px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle {
+    font-size: 10pt;
+    font-weight: 400;
+    color: #cbd5e0;
+    margin-bottom: 9px;
+  }
+  .header .summary {
+    font-size: 7.5pt;
+    line-height: 1.5;
+    color: #e2e8f0;
+  }
+  .header .summary strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* Contact bar */
+  .contact-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 16px;
+    background: #38a89d;
+    color: #fff;
+    padding: 7px 20px;
+    font-size: 7pt;
+    white-space: nowrap;
+  }
+  .contact-bar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .contact-sep {
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Main content */
+  .content {
+    display: flex;
+    gap: 22px;
+    padding: 14px 30px 14px;
+  }
+  .col-left { flex: 1.15; }
+  .col-right { flex: 0.85; }
+
+  /* Section headers */
+  .section-title {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #2d3748;
+    border-bottom: 2.5px solid #38a89d;
+    padding-bottom: 3px;
+    margin-bottom: 7px;
+    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  /* Work experience */
+  .job-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0px;
+  }
+  .job-company {
+    font-size: 8pt;
+    font-weight: 600;
+    color: #38a89d;
+  }
+  .job-meta {
+    font-size: 7pt;
+    color: #718096;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .job-category {
+    font-size: 7.2pt;
+    font-weight: 600;
+    color: #38a89d;
+    margin-top: 6px;
+    margin-bottom: 2px;
+  }
+
+  ul.bullets {
+    padding-left: 13px;
+    margin-bottom: 2px;
+  }
+  ul.bullets li {
+    margin-bottom: 3px;
+    font-size: 7.2pt;
+    line-height: 1.4;
+  }
+  ul.bullets li strong {
+    font-weight: 600;
+  }
+
+  /* Education */
+  .edu-degree {
+    font-size: 8.5pt;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .edu-school {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #38a89d;
+  }
+  .edu-meta {
+    font-size: 7pt;
+    color: #718096;
+    margin-bottom: 3px;
+  }
+  .edu-thesis {
+    font-size: 7pt;
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+
+  /* Skills */
+  .skill-category {
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #2d3748;
+    margin-top: 5px;
+    margin-bottom: 1px;
+  }
+  .skill-items {
+    font-size: 7pt;
+    color: #555;
+    line-height: 1.45;
+  }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .tag {
+    background: #38a89d;
+    color: #fff;
+    padding: 2.5px 8px;
+    border-radius: 3px;
+    font-size: 6.8pt;
+    font-weight: 500;
+  }
+
+  /* Languages */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 10px;
+    margin-top: 4px;
+  }
+  .lang-name {
+    font-size: 7.2pt;
+    font-weight: 600;
+    color: #2d3748;
+  }
+  .lang-level {
+    font-size: 6.8pt;
+    color: #718096;
+    font-style: italic;
+  }
+
+  /* Projects */
+  .project-name {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .project-desc {
+    font-size: 7pt;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 5px;
+  }
+
+  /* Low code subsection */
+  .subsection-title {
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #2d3748;
+    margin-top: 7px;
+    margin-bottom: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Vasilis Roumeliotis</h1>
+    <div class="subtitle">AI Software Engineer</div>
+    <div class="summary">
+      Results-driven <strong>AI Software Engineer</strong> with 4+ years architecting and shipping <strong>AI-powered products</strong>, <strong>multi-agent systems</strong>, and <strong>full-stack applications</strong>. Pioneered compound engineering workflows with 15+ specialized AI agents. Ships production systems across web (Next.js/React/Supabase), mobile (SwiftUI), and enterprise (OutSystems/Workato). Proven track record delivering for <strong>Fortune 500 pharmaceutical</strong>, <strong>major European logistics</strong>, and <strong>industrial HVAC</strong> enterprises.
+    </div>
+  </div>
+
+  <!-- Contact bar -->
+  <div class="contact-bar">
+    <div class="contact-item">
+      <a href="mailto:vasiroum@gmail.com">vasiroum@gmail.com</a>
+    </div>
+    <span class="contact-sep">|</span>
+    <div class="contact-item">+30 694-762-7878</div>
+    <span class="contact-sep">|</span>
+    <div class="contact-item">Athens, Greece</div>
+    <span class="contact-sep">|</span>
+    <div class="contact-item">
+      <a href="https://linkedin.com/in/vasilis-roumeliotis">linkedin.com/in/vasilis-roumeliotis</a>
+    </div>
+    <span class="contact-sep">|</span>
+    <div class="contact-item">
+      <a href="https://github.com/vasiroum">github.com/vasiroum</a>
+    </div>
+  </div>
+
+  <!-- Two column layout -->
+  <div class="content">
+
+    <!-- Left Column -->
+    <div class="col-left">
+
+      <div class="section-title">Work Experience</div>
+
+      <div class="job-title">AI Software Engineer</div>
+      <div class="job-company">Business Automatica GmbH</div>
+      <div class="job-meta">
+        <span>01/2022 &ndash; Present</span>
+        <span>Athens, Greece</span>
+      </div>
+
+      <div class="job-category">AI &amp; Multi-Agent Systems</div>
+      <ul class="bullets">
+        <li>Architected a <strong>9-agent business validation platform</strong> using Claude Agent SDK + FastAPI, orchestrating parallel research across market, competitor, financial, and risk domains</li>
+        <li>Built an adaptive pricing/rules engine with <strong>734+ automated tests</strong> and prompt caching achieving <strong>90% cost reduction</strong></li>
+        <li>Developed an <strong>autonomous idea-to-production pipeline</strong> from concept through validation, specification, and build with minimal human intervention</li>
+        <li>Built <strong>MCP servers</strong> in TypeScript, Python, and Bash for AI tool integration and legacy system migration</li>
+      </ul>
+
+      <div class="job-category">Enterprise Applications</div>
+      <ul class="bullets">
+        <li>Designed and shipped a <strong>tariff career progression system</strong> for a Fortune 500 pharmaceutical company &mdash; 13 pay grades, 4 regions, 21-state workflow, 416+ automated tests</li>
+        <li>Optimized a <strong>major European rail logistics</strong> company's track &amp; trace system, reducing page load from <strong>30-60s to sub-second</strong> via SQL query optimization</li>
+        <li>Built an <strong>offline-first PWA</strong> maintenance report system for an <strong>industrial HVAC</strong> company &mdash; 5 document types, tablet-first, IndexedDB sync</li>
+        <li>Built <strong>pdf2zugferd</strong>, an e-invoicing platform converting PDFs to <strong>ZUGFeRD/XRechnung v3</strong> compliant electronic invoices &mdash; PDF/A-3 embedding, bilingual DE/EN, Zod validation</li>
+        <li>Architected, developed and deployed a production-grade <strong>AI-powered CRM</strong></li>
+      </ul>
+
+      <div class="job-category">Developer Tooling &amp; Infrastructure</div>
+      <ul class="bullets">
+        <li>Created <strong>15+ AI development skills, hooks, and agents</strong> establishing a compound engineering workflow (plan/work/review/compound) used across all company projects</li>
+        <li>Built a <strong>Slack-Claude bridge</strong> for bidirectional team AI interaction via Socket Mode with session discovery and management</li>
+        <li>Deployed production systems on <strong>AWS ECS/Fargate</strong>, Vercel, and Supabase with Docker containerization and CI/CD pipelines</li>
+      </ul>
+
+      <div class="section-title">Side Projects</div>
+
+      <div class="project-name">ParkSpot &mdash; Peer-to-Peer Parking Marketplace</div>
+      <div class="project-desc">Full-stack marketplace with Next.js web app + SwiftUI iOS app, Stripe payments, Leaflet maps, and Supabase Auth with RLS</div>
+
+      <div class="project-name">Arc &mdash; iOS/watchOS Workout Timer</div>
+      <div class="project-desc">Offline-first timer with voice commands (SFSpeechRecognizer), background audio, WatchConnectivity sync, and crash recovery</div>
+
+      <div class="project-name">Athens Boxing Club &mdash; Marketing Site</div>
+      <div class="project-desc">Next.js 16 site with programmatic SEO (12 playbook types), bilingual EN/EL, Supabase backend</div>
+
+      <div class="project-name">Deep Research Platform &mdash; AI Research Assistant</div>
+      <div class="project-desc">Recursive SERP analysis with Firecrawl, SSE streaming, session management, and multi-mode business analysis</div>
+
+    </div>
+
+    <!-- Right Column -->
+    <div class="col-right">
+
+      <div class="section-title">Technical Skills</div>
+
+      <div class="skill-category">AI &amp; Agent Systems</div>
+      <div class="skill-items">Claude Agent SDK, MCP Servers, Multi-Agent Orchestration, Prompt Engineering, SSE Streaming</div>
+
+      <div class="skill-category">Web Development</div>
+      <div class="skill-items">Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, shadcn/ui, Bun</div>
+
+      <div class="skill-category">Cloud &amp; DevOps</div>
+      <div class="skill-items">AWS (ECS/Fargate, RDS, ECR, CloudWatch, IAM), Docker, Vercel, CI/CD</div>
+
+      <div class="skill-category">Backend &amp; Databases</div>
+      <div class="skill-items">FastAPI, Supabase (Postgres, Auth, RLS, Edge Functions), PostgreSQL</div>
+
+      <div class="skill-category">Mobile</div>
+      <div class="skill-items">SwiftUI, SwiftData, WatchConnectivity, AVAudioSession, SFSpeechRecognizer</div>
+
+      <div class="skill-category">SDK &amp; Smart Contracts</div>
+      <div class="skill-items">Ruby (SDK Development), Solidity, Python, Brownie</div>
+
+      <div class="subsection-title">Low-Code Platforms</div>
+      <div class="skill-items">OutSystems 11 &amp; ODC, Workato, Oracle Apex</div>
+
+      <div class="section-title">Education</div>
+
+      <div class="edu-degree">Electrical &amp; Computer Engineering</div>
+      <div class="edu-school">Democritus University of Thrace</div>
+      <div class="edu-meta">09/2012 &ndash; 10/2021 &nbsp;|&nbsp; Xanthi, Greece</div>
+      <div class="edu-thesis">
+        <strong>Thesis:</strong> Charged Particles' Motion Simulation in Jupiter's Magnetosphere using MPI <strong>(10/10)</strong><br>
+        <em>Fortran95, Python, Linux, MPI+OpenMP, HDF5</em>
+      </div>
+
+      <div class="section-title">Languages</div>
+      <div class="lang-grid">
+        <div>
+          <div class="lang-name">Greek</div>
+          <div class="lang-level">Native</div>
+        </div>
+        <div>
+          <div class="lang-name">English &mdash; C2</div>
+          <div class="lang-level">Full Professional</div>
+        </div>
+        <div>
+          <div class="lang-name">German &mdash; B2</div>
+          <div class="lang-level">Working Proficiency</div>
+        </div>
+        <div>
+          <div class="lang-name">French &mdash; A1</div>
+          <div class="lang-level">Elementary</div>
+        </div>
+      </div>
+
+      <div class="section-title">Skills &amp; Competencies</div>
+      <div class="tags">
+        <span class="tag">Communicative</span>
+        <span class="tag">Team Player</span>
+        <span class="tag">Methodical</span>
+        <span class="tag">Goal Oriented</span>
+        <span class="tag">Time Management</span>
+        <span class="tag">Resiliency</span>
+        <span class="tag">Persistence</span>
+        <span class="tag">Creativity</span>
+        <span class="tag">Problem Solving</span>
+      </div>
+
+      <div class="section-title">Additional Activities</div>
+      <div class="tags">
+        <span class="tag">Basketball</span>
+        <span class="tag">Swimming</span>
+        <span class="tag">Boxing</span>
+        <span class="tag">Formula 1</span>
+        <span class="tag">Reading (George Orwell)</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</body>
+</html>
